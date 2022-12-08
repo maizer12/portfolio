@@ -34,9 +34,11 @@ const toDoSlice = createSlice({
 			state.listItems = action.payload
 		},
 		getElements: state => {
-			const key = 'itemsLocal'
+			try{const key = 'itemsLocal'
 			const dataItems: IItem[] = JSON.parse(localStorage.getItem(key) || '')
-			state.listItems = dataItems
+			state.listItems = dataItems}catch{
+				state.listItems = []
+			}
 		},
 	},
 })
