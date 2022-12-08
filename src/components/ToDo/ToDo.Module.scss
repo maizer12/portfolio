@@ -1,0 +1,20 @@
+.to-do{
+	border-radius: 3px;
+	max-width: 500px;
+	border:1px solid rgba(rgb(153, 153, 153), 0.6);
+	margin: 0 auto;
+	margin-top: 200px;
+	&__inner{
+		padding: 16px;
+		padding-bottom: 26px;
+	}
+	&__create{
+		display: flex;
+		margin-bottom: 15px;
+	}
+	&__items{
+		overflow:auto;
+		max-height:500px;
+		border: 1px solid rgba(rgb(153, 153, 153), 0.6);
+	}
+}
