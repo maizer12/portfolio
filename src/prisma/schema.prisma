@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id    Int    @id @default(autoincrement())
+  title String
+  desc  String
+  type  String
+
+  icons Icon[] @relation("ProjectIcons")
+
+  Categories        ProjectCategory? @relation(fields: [projectCategoryId], references: [id])
+  projectCategoryId Int?
+
+  @@map("projects")
+}
+
+model ProjectCategory {
+  id       Int       @id @default(autoincrement())
+  name     String
+  projects Project[]
+}
+
+model Icon {
+  id        Int     @id @default(autoincrement())
+  icon      String
+  fill      String
+  projectId Int
+  project   Project @relation("ProjectIcons", fields: [projectId], references: [id])
+
+  @@map("icons")
+}

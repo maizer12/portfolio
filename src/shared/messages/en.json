@@ -1,0 +1,63 @@
+{
+  "menu": {
+    "home": "Home",
+    "experience": "Experience",
+    "projects": "Projects",
+    "blog": "Blog",
+    "aboutMe": "About Me",
+    "contact": "Contact",
+    "dashboard": "Dashboard"
+  },
+  "banner": {
+    "openCV": "Open CV",
+    "fullName": "Vasil Bazhiv",
+    "role": "Front-End Developer",
+    "description": "Hi! My name is <span>Vasil</span>, I'm a <span>Front-End Developer</span> with over <span>3 years of experience</span>, including commercial work. Ready to <span>join your team</span> and create quality websites and applications.",
+    "btnText": "More info"
+  },
+  "experience": {
+    "title": "Experience:",
+    "global": {
+      "company": "Global Services and Software Inc",
+      "date": "06.2023 - 01.2024",
+      "position": "FrontEnd developer",
+      "desc": "Development of a new design and functionality for an internal company project, involving technologies such as Vue.js, Vuex, Webpack, and GitLab, as well as providing support for legacy projects on WordPress."
+    },
+    "maxopen": {
+      "company": "MAXOPEN",
+      "date": "12.2022 - 06.2023",
+      "position": "FrontEnd developer",
+      "desc": "Developing cross-platform web applications using technologies such as HTML, CSS, SCSS, and JavaScript. Experience with version control system Git and enhancing existing products, including both regular websites and WordPress-based websites."
+    },
+    "hills": {
+      "company": "DirectHills LLC",
+      "date": "07.2022 - 12.2022",
+      "position": "FrontEnd developer",
+      "desc": "Development of an internal web application for automating routine tasks of managers, technology stack: React, TypeScript, Tailwind CSS, Redux Toolkit; backend in Java Spring."
+    }
+  },
+  "projects": {
+    "title": "My Projects:",
+    "notFound": "Not found, please try other filters!",
+    "warning": "Please be aware that the projects listed below are pet projects, as I am currently only able to add personal projects to this section. Each project showcases different skills and technologies I've worked with. For professional experience and more detailed information, please refer to the other sections of my portfolio."
+  },
+  "skills": {
+    "title": "My Skills:",
+    "subtitle": "Description:",
+    "desc": "*passe o cursor do mouse no card para ler",
+    "items": {
+      "html": "I can create semantic and beautiful markup, familiar with HTML for more than 3 years",
+      "css": "Well acquainted with CSS3, able to create adaptive and cross-browser styles",
+      "sass": "I use the Sass preprocessor for convenient CSS writing",
+      "js": "I know JavaScript, I can write complex logic and interact with the DOM",
+      "react": "I use React to create SPA applications",
+      "vue": "Familiar with Vue.js, used for creating interfaces",
+      "next": "Working with Next.js for server-side rendering and static site generation",
+      "typescript": "I use TypeScript for typing and improving code stability",
+      "node": "I use Node.js to create server-side applications",
+      "socketio": "I work with Socket.io to implement real-time applications",
+      "wordpress": "I create websites on WordPress, familiar with its internal structure",
+      "bootstrap": "I use Bootstrap for quick layout and creating adaptive interfaces"
+    }
+  }
+}
