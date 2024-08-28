@@ -1,12 +1,11 @@
 import { PrismaClient } from '@prisma/client';
-import { cibMongodb, cibNextJs, cibNodeJs, cibReact, cibTypescript, cibVueJs } from '@coreui/icons';
 import { projectCategories, projectsArr } from './constants';
 
 const prisma = new PrismaClient();
 
 async function cleanTables() {
   await prisma.$executeRaw`TRUNCATE TABLE "projects" RESTART IDENTITY CASCADE`;
-  //await prisma.$executeRaw`TRUNCATE TABLE "Icon" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "ProjectCategory" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {

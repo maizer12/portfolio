@@ -3,6 +3,7 @@ import React, { FC, useEffect } from 'react';
 import Badge from '@/shared/common/Badge';
 import { Api } from '@/shared/services/api-client';
 import { ProjectCategory } from '@prisma/client';
+import { Skeleton } from '@/shared/common';
 
 interface IProps {
   activeId: number;
@@ -11,15 +12,33 @@ interface IProps {
 
 export const ProjectCategories: FC<IProps> = ({ activeId, setActiveId }) => {
   const [categories, setCategories] = React.useState<ProjectCategory[]>([]);
+  const [loading, setLoading] = React.useState(false);
+  const loaders = [...new Array(6)];
 
   useEffect(() => {
     const getCategories = async () => {
-      const res = await Api.projects.getProjectsCategories();
-      setCategories(res);
+      try {
+        setLoading(true);
+        const res = await Api.projects.getProjectsCategories();
+        setCategories(res);
+      } catch (error) {
+        //console.log(error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     getCategories();
   }, []);
+
+  if (loading)
+    return (
+      <div className="max-w-[1324px] mx-auto flex gap-3">
+        {loaders.map((e, i) => (
+          <Skeleton className="w-[100px] h-[34px] !bg-slate-100 " key={i} />
+        ))}
+      </div>
+    );
 
   return (
     <div className="max-w-[1324px] mx-auto flex gap-3">

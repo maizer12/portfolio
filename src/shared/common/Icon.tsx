@@ -1,12 +1,17 @@
 'use client';
+import React from 'react';
 import CIcon from '@coreui/icons-react';
+import * as icons from '@coreui/icons';
+import { cilWarning } from '@coreui/icons';
 
 interface IProps {
-  icon: string | string[];
+  icon: string;
   className?: string;
   style?: any;
 }
 
 export const Icon = ({ icon, className = '', style = {} }: IProps) => {
-  return <CIcon icon={icon} size="xxl" className={' ' + className} style={style} />;
+  const IconComponent = (icons as any)[icon] || cilWarning;
+
+  return <CIcon icon={IconComponent} size="xxl" className={className} style={style} />;
 };

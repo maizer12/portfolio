@@ -15,8 +15,7 @@ model Project {
 
   icons Icon[] @relation("ProjectIcons")
 
-  Categories        ProjectCategory? @relation(fields: [projectCategoryId], references: [id])
-  projectCategoryId Int?
+  categories ProjectCategory[]
 
   @@map("projects")
 }

@@ -22,7 +22,7 @@ export const Banner = () => {
             className="border p-2 px-3 w-fit border-primary-200 text-sm text-light-400 flex min-w-[134px] items-center gap-4 bg-dark-900 duration-500 rounded-sm ml-auto hover:border-light-400"
             target="_blank"
           >
-            <Icon icon={cilFile} className="w-6" />
+            <Icon icon="cilFile" className="w-6" />
             {t('openCV')}
           </a>
           <div>

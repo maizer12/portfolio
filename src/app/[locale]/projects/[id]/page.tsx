@@ -71,18 +71,18 @@ export default function Project() {
             <p className="text-primary-200 font-inter font-bold">Full Stack Project:</p>
             <HTag tag="h1">DevFlow:</HTag>
           </div>
-          <div className="flex gap-4">
+          {/* <div className="flex gap-4">
             <Icon icon={cibReact} className="w-12" style={{ fill: '#61DAFB' }} />
             <Icon icon={cibNodeJs} className="w-12" style={{ fill: '#339933' }} />
             <Icon icon={cibMongodb} className="w-12" style={{ fill: '#47A248' }} />
             <Icon icon={cibSocketIo} className="w-12" style={{ fill: 'white' }} />
             <Icon icon={cibSass} className="w-12" style={{ fill: '#CC6699' }} />
-          </div>
+          </div> */}
         </div>
         <div className="flex gap-4 mb-4">
           <MainButton className="min-w-[114px]">Visit</MainButton>
           <a className="border w-11 h-11 flex justify-center items-center border-primary-700 bg-dark-900 hover:border-light-400 fill-primary-200 hover:fill-light-400 duration-300 cursor-pointer">
-            <Icon icon={cibGit} />
+            {/* <Icon icon={cibGit} /> */}
           </a>
         </div>
         <HTag tag="h5" className="mb-4">

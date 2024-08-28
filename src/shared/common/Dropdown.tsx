@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { Icon } from '../common/Icon';
-import { cibCodeClimate } from '@coreui/icons';
 import { SelectItemType } from '@/shared/models/SelectItem.type';
 import useUpdateQueryParams from '@/shared/utils/updateQueryParams';
 
@@ -11,7 +10,7 @@ interface IProps {
   items: SelectItemType[];
 }
 
-const defaultSelect = { value: '', label: 'All', icon: cibCodeClimate };
+const defaultSelect = { value: '', label: 'All', icon: 'cibCodeClimate' };
 
 function Dropdown({ chose, items, onChange }: IProps) {
   const [selectedItem, setSelectedItem] = useState(items.find((e) => e.value === chose) || defaultSelect);
