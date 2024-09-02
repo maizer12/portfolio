@@ -1,6 +1,6 @@
 'use client';
 import { techFilters } from '@/_config';
-import useUpdateQueryParams from '@/shared/utils/updateQueryParams';
+import useUpdateQueryParams from '@/shared/lib/updateQueryParams';
 import DropdownMenu from '../../common/Dropdown';
 
 interface IProps {

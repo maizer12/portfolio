@@ -15,15 +15,26 @@ model Project {
 
   icons Icon[] @relation("ProjectIcons")
 
-  categories ProjectCategory[]
+  categories CategorysOnProjects[]
 
   @@map("projects")
 }
 
 model ProjectCategory {
-  id       Int       @id @default(autoincrement())
-  name     String
-  projects Project[]
+  id   Int    @id @default(autoincrement())
+  name String
+
+  ProjectCategoryOnProject CategorysOnProjects[]
+}
+
+model CategorysOnProjects {
+  projectId Int
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  categoryId Int
+  category   ProjectCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, categoryId])
 }
 
 model Icon {

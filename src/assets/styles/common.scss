@@ -25,3 +25,6 @@
 .banner {
   @apply bg-dark-700 border border-primary-700 p-4 md:p-10 my-20 md:my-24 relative z-10;
 }
+.full-grid {
+  grid-column: 1 / -1;
+}

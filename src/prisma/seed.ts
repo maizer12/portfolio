@@ -11,30 +11,32 @@ async function cleanTables() {
 async function main() {
   await cleanTables();
 
-  await prisma.project.createMany({
-    data: projectsArr.map(({ title, desc, type }) => ({
-      title,
-      desc,
-      type,
-    })),
-  });
-
   await prisma.projectCategory.createMany({
     data: projectCategories.map((category) => ({ name: category })),
   });
 
-  for (let i = 0; i < projectsArr.length; i++) {
-    const project = projectsArr[i];
-    if (project.icons) {
-      await prisma.icon.createMany({
-        data: project.icons.map((icon) => ({
-          icon: icon.icon,
-          fill: icon.fill,
-          projectId: i + 1,
-        })),
-      });
-    }
-  }
+  projectsArr.map(async ({ title, desc, type, categories, icons }) => {
+    await prisma.project.create({
+      data: {
+        title,
+        desc,
+        type,
+        categories: {
+          create: categories.map((categoryId) => ({
+            category: {
+              connect: { id: categoryId },
+            },
+          })),
+        },
+        icons: {
+          create: icons.map((icon) => ({
+            icon: icon.icon,
+            fill: icon.fill,
+          })),
+        },
+      },
+    });
+  });
 
   console.log('Icons added for each project');
 }

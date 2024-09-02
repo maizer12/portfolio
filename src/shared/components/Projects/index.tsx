@@ -21,6 +21,30 @@ interface IProps {
 const Projects = ({ filter, type }: IProps) => {
   const [activeCategory, setActiveCategory] = React.useState(0);
   const t = useTranslations('projects');
+  const [visibleProjects, setVisibleProjects] = React.useState(6);
+
+  const [loading, setLoading] = React.useState(false);
+  const [projects, setProjects] = React.useState<ProjectWithRelations[]>([]);
+
+  const loadMoreProjects = () => {
+    setVisibleProjects((prev) => prev + 6);
+  };
+
+  React.useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        const res = await getProjects(activeCategory);
+        setProjects(res);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, [activeCategory]);
 
   return (
     <section className="py-32 bg-main" id="projects">
@@ -40,10 +64,12 @@ const Projects = ({ filter, type }: IProps) => {
           </AnimatedOnScroll>
           <ProjectCategories activeId={activeCategory} setActiveId={setActiveCategory} />
         </div>
-        <ProjectList />
-        <div className="mx-auto w-fit mt-12">
-          <MainButton>More Projects</MainButton>
-        </div>
+        <ProjectList projects={projects.slice(0, visibleProjects)} isLoading={loading} />
+        {visibleProjects < projects.length && (
+          <div className="mx-auto w-fit mt-12">
+            <MainButton onClick={loadMoreProjects}>More Projects</MainButton>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Icon } from '../common/Icon';
 import { SelectItemType } from '@/shared/models/SelectItem.type';
-import useUpdateQueryParams from '@/shared/utils/updateQueryParams';
+import useUpdateQueryParams from '@/shared/lib/updateQueryParams';
 
 interface IProps {
   chose: string;
