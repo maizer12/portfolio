@@ -1,11 +1,12 @@
 import { PrismaClient } from '@prisma/client';
-import { projectCategories, projectsArr } from './constants';
+import { projectCategories, projectsArr, technologiesConstants } from './constants';
 
 const prisma = new PrismaClient();
 
 async function cleanTables() {
   await prisma.$executeRaw`TRUNCATE TABLE "projects" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "ProjectCategory" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "Technology" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {
@@ -15,7 +16,17 @@ async function main() {
     data: projectCategories.map((category) => ({ name: category })),
   });
 
-  projectsArr.map(async ({ title, desc, type, categories, icons }) => {
+  for (const tech of technologiesConstants) {
+    await prisma.technology.create({
+      data: {
+        name: tech.label,
+        icon: tech.icon,
+        color: tech.fill,
+      },
+    });
+  }
+
+  projectsArr.map(async ({ title, desc, type, categories, icons, technologyIds }) => {
     await prisma.project.create({
       data: {
         title,
@@ -32,6 +43,11 @@ async function main() {
           create: icons.map((icon) => ({
             icon: icon.icon,
             fill: icon.fill,
+          })),
+        },
+        technologies: {
+          connect: technologyIds.map((techId) => ({
+            id: techId,
           })),
         },
       },

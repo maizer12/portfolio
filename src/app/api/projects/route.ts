@@ -4,14 +4,16 @@ import { prisma } from '@/prisma/prisma-client';
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const categoryId = searchParams.get('categoryId');
+  const include = {
+    icons: true,
+    technologies: true,
+  };
 
   const categoryIdNumber = categoryId ? parseInt(categoryId, 10) : null;
 
   if (!categoryIdNumber) {
     const allProjects = await prisma.project.findMany({
-      include: {
-        icons: true,
-      },
+      include,
     });
     return NextResponse.json(allProjects);
   }
@@ -24,9 +26,7 @@ export async function GET(request: NextRequest) {
         },
       },
     },
-    include: {
-      icons: true,
-    },
+    include,
   });
 
   return NextResponse.json(projects);

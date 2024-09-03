@@ -17,6 +17,8 @@ model Project {
 
   categories CategorysOnProjects[]
 
+  technologies Technology[] @relation("ProjectTechnology")
+
   @@map("projects")
 }
 
@@ -45,4 +47,12 @@ model Icon {
   project   Project @relation("ProjectIcons", fields: [projectId], references: [id])
 
   @@map("icons")
+}
+
+model Technology {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  icon     String
+  color    String
+  projects Project[] @relation("ProjectTechnology")
 }

@@ -9,6 +9,7 @@ export const projectsArr = [
       { icon: 'cibTypescript', fill: 'fill-blue-400' },
       { icon: 'cibMongodb', fill: 'fill-lime-600' },
     ],
+    technologyIds: [3, 5],
   },
   {
     title: 'Inventory',
@@ -20,6 +21,7 @@ export const projectsArr = [
       { icon: 'cibNodeJs', fill: 'fill-green-500' },
       { icon: 'cibMongodb', fill: 'fill-lime-600' },
     ],
+    technologyIds: [2, 6],
   },
   {
     title: 'Weather Wise',
@@ -27,6 +29,7 @@ export const projectsArr = [
     type: 'web-application',
     categories: [1],
     icons: [{ icon: 'cibVueJs', fill: 'fill-green-500' }],
+    technologyIds: [4],
   },
   {
     title: 'Next Pizza',
@@ -34,6 +37,7 @@ export const projectsArr = [
     type: 'web-application',
     categories: [1, 2],
     icons: [{ icon: 'cibVueJs', fill: 'fill-green-500' }],
+    technologyIds: [4],
   },
   {
     title: 'Game Arcade',
@@ -41,6 +45,7 @@ export const projectsArr = [
     type: 'web-application',
     categories: [4],
     icons: [{ icon: 'cibVueJs', fill: 'fill-green-500' }],
+    technologyIds: [4],
   },
   {
     title: 'Simple Portfolio',
@@ -48,6 +53,7 @@ export const projectsArr = [
     type: 'web-application',
     categories: [1],
     icons: [{ icon: 'cibReact', fill: 'fill-blue-500' }],
+    technologyIds: [2],
   },
   {
     title: 'Social Network',
@@ -55,6 +61,7 @@ export const projectsArr = [
     type: 'web-application',
     categories: [4],
     icons: [{ icon: 'cibVueJs', fill: 'fill-green-500' }],
+    technologyIds: [4],
   },
   {
     title: 'E-commerce Platform',
@@ -65,6 +72,7 @@ export const projectsArr = [
       { icon: 'cibNextJs', fill: 'fill-black' },
       { icon: 'cibStripe', fill: 'fill-blue-500' },
     ],
+    technologyIds: [3],
   },
   {
     title: 'Fitness Tracker',
@@ -75,6 +83,7 @@ export const projectsArr = [
       { icon: 'cibReact', fill: 'fill-blue-500' },
       { icon: 'cibNodeJs', fill: 'fill-green-500' },
     ],
+    technologyIds: [2, 6],
   },
   {
     title: 'Blog Platform',
@@ -85,7 +94,19 @@ export const projectsArr = [
       { icon: 'cibReact', fill: 'fill-blue-500' },
       { icon: 'cibTailwindCss', fill: 'fill-blue-500' },
     ],
+    technologyIds: [2],
   },
 ];
 
 export const projectCategories = ['Web Application', 'Fullstack', 'Landing Page', 'Desktop Application', 'Games'];
+
+export const technologiesConstants = [
+  { value: 'react', label: 'React', icon: 'cibReact', fill: 'fill-blue-600' },
+  { value: 'next', label: 'Next', icon: 'cibNextJs', fill: 'fill-white' },
+  { value: 'vue', label: 'Vue', icon: 'cibVueJs', fill: 'fill-green-500' },
+  { value: 'ts', label: 'TS', icon: 'cibTypescript', fill: 'fill-blue-400' },
+  { value: 'node', label: 'Node', icon: 'cibNodeJs', fill: 'fill-green-600' },
+  { value: 'websocket', label: 'Websocket', icon: 'cibSocketIo', fill: 'fill-gray-400' },
+  { value: 'electron', label: 'Electron', icon: 'cibElectron', fill: 'fill-blue-700' },
+  { value: 'jquery', label: 'Jquery', icon: 'cibJquery', fill: 'fill-blue-500' },
+];

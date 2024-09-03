@@ -1,4 +1,4 @@
-import { Project, ProjectCategory } from '@prisma/client';
+import { ProjectCategory } from '@prisma/client';
 import { axiosInstance } from './instance';
 import { ApiRoutes } from './api-routes';
 import { ProjectWithRelations } from '@/@types/prisma';

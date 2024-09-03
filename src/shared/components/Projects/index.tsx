@@ -54,7 +54,7 @@ const Projects = ({ filter, type }: IProps) => {
             <HTag tag="h2" className="text-center">
               {t('title')}
             </HTag>
-            <ProjectDropdown filter={filter || ''} />
+            <ProjectDropdown />
           </div>
           <AnimatedOnScroll animation="left">
             <Warning className="mb-7">
