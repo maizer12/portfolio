@@ -4,7 +4,6 @@ const prisma = new PrismaClient();
 
 async function main() {
   try {
-    // Проверка подключения и получение всех проектов
     const projects = await prisma.project.findMany();
     console.log('Projects:', projects);
   } catch (error) {

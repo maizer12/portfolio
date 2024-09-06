@@ -39,12 +39,6 @@ async function main() {
             },
           })),
         },
-        icons: {
-          create: icons.map((icon) => ({
-            icon: icon.icon,
-            fill: icon.fill,
-          })),
-        },
         technologies: {
           connect: technologyIds.map((techId) => ({
             id: techId,

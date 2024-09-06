@@ -8,7 +8,9 @@ export const getProjectsCategories = async (): Promise<ProjectCategory[]> => {
   return data;
 };
 
-export const getProjects = async (categoryId?: number): Promise<ProjectWithRelations[]> => {
-  const { data } = await axiosInstance.get<ProjectWithRelations[]>(ApiRoutes.PROJECTS + `?categoryId=${categoryId}`);
+export const getProjects = async (categoryId?: number, technologyId?: number): Promise<ProjectWithRelations[]> => {
+  const { data } = await axiosInstance.get<ProjectWithRelations[]>(
+    ApiRoutes.PROJECTS + `?categoryId=${categoryId}&technologyId=${technologyId}`,
+  );
   return data;
 };

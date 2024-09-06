@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Icon } from '../common/Icon';
 import { ChevronDown } from 'lucide-react';
 
@@ -8,10 +8,11 @@ interface IProps {
   text?: string;
   children: React.ReactNode;
   icon: string;
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
 }
 
-function Dropdown({ children, label, text, icon }: IProps) {
-  const [isOpen, setIsOpen] = useState(false);
+function Dropdown({ children, label, text, icon, isOpen, setIsOpen }: IProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -25,7 +26,7 @@ function Dropdown({ children, label, text, icon }: IProps) {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [setIsOpen]);
 
   return (
     <div ref={dropdownRef} className="relative">

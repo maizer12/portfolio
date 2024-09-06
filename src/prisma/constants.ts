@@ -9,7 +9,7 @@ export const projectsArr = [
       { icon: 'cibTypescript', fill: 'fill-blue-400' },
       { icon: 'cibMongodb', fill: 'fill-lime-600' },
     ],
-    technologyIds: [3, 5],
+    technologyIds: [3, 1, 5],
   },
   {
     title: 'Inventory',

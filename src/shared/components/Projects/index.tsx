@@ -20,6 +20,8 @@ interface IProps {
 
 const Projects = ({ filter, type }: IProps) => {
   const [activeCategory, setActiveCategory] = React.useState(0);
+  const [activeTechnologies, setActiveTechnologies] = React.useState(0);
+
   const t = useTranslations('projects');
   const [visibleProjects, setVisibleProjects] = React.useState(6);
 
@@ -34,7 +36,7 @@ const Projects = ({ filter, type }: IProps) => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const res = await getProjects(activeCategory);
+        const res = await getProjects(activeCategory, activeTechnologies);
         setProjects(res);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -44,7 +46,7 @@ const Projects = ({ filter, type }: IProps) => {
     };
 
     fetchProjects();
-  }, [activeCategory]);
+  }, [activeCategory, activeTechnologies]);
 
   return (
     <section className="py-32 bg-main" id="projects">
@@ -54,7 +56,7 @@ const Projects = ({ filter, type }: IProps) => {
             <HTag tag="h2" className="text-center">
               {t('title')}
             </HTag>
-            <ProjectDropdown />
+            <ProjectDropdown activeTechnologies={activeTechnologies} setActiveTechnologies={setActiveTechnologies} />
           </div>
           <AnimatedOnScroll animation="left">
             <Warning className="mb-7">

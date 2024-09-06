@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Project {
@@ -13,13 +14,24 @@ model Project {
   desc  String
   type  String
 
-  icons Icon[] @relation("ProjectIcons")
+  detailsId Int?                @unique
+  details   ProjectMoreDetails? @relation(fields: [detailsId], references: [id])
 
-  categories CategorysOnProjects[]
-
-  technologies Technology[] @relation("ProjectTechnology")
+  categories   CategorysOnProjects[]
+  technologies Technology[]          @relation("ProjectTechnology")
 
   @@map("projects")
+}
+
+model ProjectMoreDetails {
+  id      Int      @id @default(autoincrement())
+  project Project?
+
+  gitLink  String
+  link     String
+  imageUrl String
+
+  projectId Int
 }
 
 model ProjectCategory {
@@ -37,16 +49,6 @@ model CategorysOnProjects {
   category   ProjectCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   @@id([projectId, categoryId])
-}
-
-model Icon {
-  id        Int     @id @default(autoincrement())
-  icon      String
-  fill      String
-  projectId Int
-  project   Project @relation("ProjectIcons", fields: [projectId], references: [id])
-
-  @@map("icons")
 }
 
 model Technology {

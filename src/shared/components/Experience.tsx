@@ -59,9 +59,9 @@ const Experience = () => {
                     {content.desc}
                   </h5>
                   <div className="flex w-fit mt-4 ml-auto gap-2">
-                    {/* {content.icons?.map((icon, index) => (
+                    {content.icons?.map((icon, index) => (
                       <Icon icon={icon} className={`iconBounce w-7 fill-light-400`} key={index} />
-                    ))} */}
+                    ))}
                   </div>
                 </AnimatedOnScroll>
               </TabsContent>

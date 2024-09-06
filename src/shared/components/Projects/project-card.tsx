@@ -3,6 +3,7 @@ import AnimatedOnScroll from '@/shared/common/AnimatedOnScroll';
 import { HTag } from '@/shared/common/HTag';
 import { Icon } from '@/shared/common/Icon';
 import { cn } from '@/shared/lib/utils';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import React from 'react';
 
@@ -12,6 +13,8 @@ interface Props {
 }
 
 export const ProjectCard: React.FC<Props> = ({ item, className }) => {
+  const local = useLocale();
+
   return (
     <AnimatedOnScroll tag="li" className={className}>
       <div className="border w-full min-w-[320px] border-primary-200 bg-dark-700 p-8 h-fit fadeInSlow flex flex-col">
@@ -22,7 +25,7 @@ export const ProjectCard: React.FC<Props> = ({ item, className }) => {
           {item.desc}
         </h5>
         <div className="flex items-center justify-between">
-          <Link href={'/projects/' + item.id} className="text-primary-200 block mt-2" title={item.title}>
+          <Link href={`/${local}/project/${item.id}`} className="text-primary-200 block mt-2" title={item.title}>
             More info
           </Link>
           <div className="flex w-fit gap-3">
