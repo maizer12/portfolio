@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Project {
+  id    Int    @id @default(autoincrement())
+  title String
+  desc  String
+  type  String
+
+  detailsId Int?                @unique
+  details   ProjectMoreDetails? @relation(fields: [detailsId], references: [id])
+
+  categories   CategorysOnProjects[]
+  technologies Technology[]          @relation("ProjectTechnology")
+
+  @@map("projects")
+}
+
+model ProjectMoreDetails {
+  id Int @id @default(autoincrement())
+
+  project Project?
+
+  gitLink  String
+  link     String
+  imageUrl String[]
+  desc     Json
+}
+
+model ProjectCategory {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  ProjectCategoryOnProject CategorysOnProjects[]
+}
+
+model CategorysOnProjects {
+  projectId Int
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  categoryId Int
+  category   ProjectCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, categoryId])
+}
+
+model Technology {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  icon     String
+  color    String
+  projects Project[] @relation("ProjectTechnology")
+}
