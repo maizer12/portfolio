@@ -1,6 +1,6 @@
 import { contactsArray } from '@/_config';
 import { Icon } from '@/shared/common/Icon';
-import style from './Banner.module.scss';
+import style from './banner.module.scss';
 
 const BannerLinks = () => {
   return (

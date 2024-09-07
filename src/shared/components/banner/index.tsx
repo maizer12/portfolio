@@ -1,7 +1,7 @@
 import { HTag } from '../../common/HTag';
 import Image from 'next/image';
 import bannerImg from '../../../../public/bg-test.webp';
-import style from './Banner.module.scss';
+import style from './banner.module.scss';
 import { PTag } from '../../common/PTag';
 import MainButton from '../../common/MainButton';
 import { useTranslations } from 'next-intl';
