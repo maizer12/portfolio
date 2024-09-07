@@ -3,8 +3,9 @@ import { cn } from '../lib/utils';
 
 interface Props {
   className?: string;
+  children: React.ReactNode;
 }
 
-export const Container: React.FC<Props> = ({ className }) => {
-  return <div className={cn(className)}></div>;
+export const Container: React.FC<Props> = ({ className, children }) => {
+  return <div className={cn(className)}>{children}</div>;
 };

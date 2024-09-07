@@ -24,14 +24,14 @@ model Project {
 }
 
 model ProjectMoreDetails {
-  id      Int      @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+
   project Project?
 
   gitLink  String
   link     String
-  imageUrl String
-
-  projectId Int
+  imageUrl String[]
+  desc     Json
 }
 
 model ProjectCategory {

@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { projectCategories, projectsArr, technologiesConstants } from './constants';
+import { projectCategories, projectDetails, projectsArr, technologiesConstants } from './constants';
 
 const prisma = new PrismaClient();
 
@@ -26,7 +26,7 @@ async function main() {
     });
   }
 
-  projectsArr.map(async ({ title, desc, type, categories, icons, technologyIds }) => {
+  projectsArr.map(async ({ title, desc, type, categories, technologyIds }) => {
     await prisma.project.create({
       data: {
         title,
@@ -48,7 +48,9 @@ async function main() {
     });
   });
 
-  console.log('Icons added for each project');
+  await prisma.projectMoreDetails.create({
+    data: projectDetails[0],
+  });
 }
 
 main()

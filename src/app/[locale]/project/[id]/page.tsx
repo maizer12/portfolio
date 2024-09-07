@@ -1,8 +1,7 @@
 import { HTag } from '@/shared/common';
-import Image from 'next/image';
-import projectImg from '../../../../../public/projects/inventory/1.png';
 import { Icon } from '@/shared/common/Icon';
 import MainButton from '@/shared/common/MainButton';
+import { ProjectSlider } from '@/shared/components';
 
 export default function Project() {
   const features = [
@@ -78,9 +77,7 @@ export default function Project() {
             <Icon icon={'cibSass'} className="w-12" style={{ fill: '#CC6699' }} />
           </div>
         </div>
-        <div className="w-full mx-auto overflow-hidden h-hull mb-24">
-          <Image src={projectImg} alt="Project Image" width={1920} height={1080} className="w-full" />
-        </div>
+        <ProjectSlider />
         <div className="flex gap-4 mb-4">
           <MainButton className="min-w-[114px]">Visit</MainButton>
           <a className="border w-11 h-11 flex justify-center items-center border-primary-700 bg-dark-900 hover:border-light-400 fill-primary-200 hover:fill-light-400 duration-300 cursor-pointer">
