@@ -14,3 +14,8 @@ export const getProjects = async (categoryId?: number, technologyId?: number): P
   );
   return data;
 };
+
+export const getProject = async (projectId: string): Promise<ProjectWithRelations> => {
+  const { data } = await axiosInstance.get<ProjectWithRelations>(ApiRoutes.PROJECTS + `/${projectId}`);
+  return data;
+};

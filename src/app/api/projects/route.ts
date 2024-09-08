@@ -6,7 +6,11 @@ export async function GET(request: NextRequest) {
   const categoryId = searchParams.get('categoryId');
   const technologyId = searchParams.get('technologyId');
   const include = {
-    technologies: true,
+    technologies: {
+      include: {
+        technology: true,
+      },
+    },
   };
 
   const categoryIdNumber = categoryId ? parseInt(categoryId, 10) : null;
@@ -33,7 +37,15 @@ export async function GET(request: NextRequest) {
   const projects = await prisma.project.findMany({
     where: whereConditions,
     include,
+    orderBy: { id: 'asc' },
   });
 
-  return NextResponse.json(projects);
+  const res = projects.map((project) => {
+    return {
+      ...project,
+      technologies: project.technologies.map((tech) => tech.technology),
+    };
+  });
+
+  return NextResponse.json(res);
 }

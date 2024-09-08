@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
   const id = req.nextUrl.pathname.split('/').pop();
-  console.log('ID:', id);
 
   if (!id || isNaN(Number(id))) {
     return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
@@ -14,7 +13,7 @@ export async function GET(req: NextRequest) {
       id: Number(id),
     },
     include: {
-      //technologies: true,
+      technologies: true,
       details: true,
     },
   });

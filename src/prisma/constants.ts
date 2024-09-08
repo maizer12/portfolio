@@ -7,9 +7,8 @@ export const projectsArr = [
     icons: [
       { icon: 'cibNextJs', fill: 'fill-slate-200' },
       { icon: 'cibTypescript', fill: 'fill-blue-400' },
-      { icon: 'cibMongodb', fill: 'fill-lime-600' },
     ],
-    technologyIds: [3, 1, 5],
+    technologyIds: [2, 4, 5],
   },
   {
     title: 'Inventory',
@@ -21,7 +20,7 @@ export const projectsArr = [
       { icon: 'cibNodeJs', fill: 'fill-green-500' },
       { icon: 'cibMongodb', fill: 'fill-lime-600' },
     ],
-    technologyIds: [2, 6],
+    technologyIds: [1, 5, 9],
   },
   {
     title: 'Weather Wise',
@@ -109,6 +108,7 @@ export const technologiesConstants = [
   { value: 'websocket', label: 'Websocket', icon: 'cibSocketIo', fill: 'fill-gray-400' },
   { value: 'electron', label: 'Electron', icon: 'cibElectron', fill: 'fill-blue-700' },
   { value: 'jquery', label: 'Jquery', icon: 'cibJquery', fill: 'fill-blue-500' },
+  { label: 'Mongodb', icon: 'cibMongodb', fill: 'fill-lime-600' },
 ];
 
 export const projectDetails = [

@@ -26,27 +26,29 @@ async function main() {
     });
   }
 
-  projectsArr.map(async ({ title, desc, type, categories, technologyIds }) => {
-    await prisma.project.create({
-      data: {
-        title,
-        desc,
-        type,
-        categories: {
-          create: categories.map((categoryId) => ({
-            category: {
-              connect: { id: categoryId },
-            },
-          })),
+  await Promise.all(
+    projectsArr.map(async ({ title, desc, type, categories, technologyIds }) => {
+      await prisma.project.create({
+        data: {
+          title,
+          desc,
+          type,
+          categories: {
+            connect: categories.map((categoryId) => ({
+              id: categoryId,
+            })),
+          },
+          technologies: {
+            create: technologyIds.map((techId) => ({
+              technology: {
+                connect: { id: techId },
+              },
+            })),
+          },
         },
-        technologies: {
-          connect: technologyIds.map((techId) => ({
-            id: techId,
-          })),
-        },
-      },
-    });
-  });
+      });
+    }),
+  );
 
   await prisma.projectMoreDetails.create({
     data: projectDetails[0],

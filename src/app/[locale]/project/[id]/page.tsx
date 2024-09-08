@@ -1,65 +1,37 @@
+import { ProjectWithRelations } from '@/@types/prisma';
+import { prisma } from '@/prisma/prisma-client';
 import { HTag } from '@/shared/common';
 import { Icon } from '@/shared/common/Icon';
 import MainButton from '@/shared/common/MainButton';
-import { ProjectSlider } from '@/shared/components';
+import { ProjectDesc, ProjectSlider } from '@/shared/components';
+import { DescItem } from '@/shared/components/projects/full-project/project-desc';
 
-export default function Project() {
-  const features = [
-    {
-      title: 'Order Management',
-      description: 'Users can retrieve, create, and delete orders, providing a seamless workflow for order handling.',
+export default async function Project({ params: { id } }: { params: { id: string } }) {
+  const data = await prisma.project.findUnique({
+    where: {
+      id: Number(id),
     },
-    {
-      title: 'Product Management',
-      description:
-        'Users can retrieve, create, and delete products. Each product created is linked to a specific order, ensuring a clear connection between products and their respective orders.',
+    include: {
+      technologies: true,
+      details: true,
     },
-    {
-      title: 'Search Optimization',
-      description:
-        'A debounce mechanism is implemented on the search function to reduce server load by limiting the number of queries sent.',
-    },
-    {
-      title: 'React Lazy Loading',
-      description:
-        'All pages are wrapped with React Lazy for additional optimization, enabling faster application load times by loading components as they are needed.',
-    },
-    {
-      title: 'Lazy Loading of Orders Table',
-      description: 'The orders table is lazily loaded to improve performance and speed up the user interface.',
-    },
-    {
-      title: 'Form Validation',
-      description: 'All forms are validated to ensure the integrity of the data entered.',
-    },
-    {
-      title: 'Product Page Filtering',
-      description: 'Filtering options are available on the products page, simplifying the search for specific items.',
-    },
-    {
-      title: 'Current Date Display',
-      description: 'The interface includes the display of the current date.',
-    },
-    {
-      title: 'Real-Time Active User Count',
-      description:
-        'The number of active users is displayed in real-time, fostering an interactive and dynamic user experience.',
-    },
-    {
-      title: 'Multi-Language Support',
-      description: 'The application supports two languages, Ukrainian and English, to cater to a diverse user base.',
-    },
-    {
-      title: 'Loaders for Each Loading Process',
-      description:
-        'Loaders are implemented for every loading operation to enhance the user experience by providing visual feedback.',
-    },
-    {
-      title: 'File Upload Capability',
-      description:
-        'Users have the ability to upload files, adding to the functionality and flexibility of the application.',
-    },
-  ];
+  });
+
+  if (!data) return <div>No data</div>;
+
+  let descItems: DescItem[] = [];
+
+  if (typeof data.details?.desc === 'string') {
+    try {
+      descItems = JSON.parse(data.details.desc) as DescItem[];
+    } catch (error) {
+      console.error('Failed to parse desc:', error);
+    }
+  }
+
+  const images = data.details?.imageUrl.map((img, ind) => {
+    return { src: img, alt: `data.title ${ind}` };
+  });
 
   return (
     <section className="py-24 bg-main flex justify-center items-center min-h-screen">
@@ -67,18 +39,16 @@ export default function Project() {
         <div className="flex justify-between mb-12">
           <div>
             <p className="text-primary-200 font-inter font-bold">Full Stack Project:</p>
-            <HTag tag="h1">DevFlow:</HTag>
+            <HTag tag="h1">{data.title}</HTag>
           </div>
           <div className="flex gap-4">
-            <Icon icon={'cibReact'} className="w-12" style={{ fill: '#61DAFB' }} />
-            <Icon icon={'cibNodeJs'} className="w-12" style={{ fill: '#339933' }} />
-            <Icon icon={'cibMongodb'} className="w-12" style={{ fill: '#47A248' }} />
-            <Icon icon={'cibSocketIo'} className="w-12" style={{ fill: 'white' }} />
-            <Icon icon={'cibSass'} className="w-12" style={{ fill: '#CC6699' }} />
+            {data.technologies.map(({ icon, color }, index) => (
+              <Icon key={index} icon={icon} className={`w-12 ${color}`} />
+            ))}
           </div>
         </div>
-        <ProjectSlider />
-        <div className="flex gap-4 mb-4">
+        {images && <ProjectSlider items={images} />}
+        <div className="flex gap-4 mb-12">
           <MainButton className="min-w-[114px]">Visit</MainButton>
           <a className="border w-11 h-11 flex justify-center items-center border-primary-700 bg-dark-900 hover:border-light-400 fill-primary-200 hover:fill-light-400 duration-300 cursor-pointer">
             <Icon icon={'cibGit'} />
@@ -87,16 +57,7 @@ export default function Project() {
         <HTag tag="h5" className="mb-4">
           Description:
         </HTag>
-        <ul>
-          {features.map((feature, index) => (
-            <li key={index} className="mb-6">
-              <h5 className="text-xl font-semibold text-light-900">
-                {index + 1}. {feature.title}
-              </h5>
-              <p className="text-light-400">{feature.description}</p>
-            </li>
-          ))}
-        </ul>
+        {descItems && <ProjectDesc items={descItems} />}
       </div>
     </section>
   );
