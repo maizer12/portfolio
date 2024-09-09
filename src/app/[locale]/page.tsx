@@ -17,7 +17,7 @@ export default function Home({ searchParams }: IProps) {
     <>
       <Banner />
       <Experience />
-      <Projects filter={searchParams.filter} type={searchParams.type} />
+      <Projects />
       <Skills />
     </>
   );
