@@ -12,7 +12,7 @@
     padding: 8px 16px;
     position: relative;
     z-index: 2;
-    @apply border border-primary-200 bg-dark-700 text-light-900;
+    @apply border border-primary-200 bg-dark-700 text-light-900 flex items-center gap-3 justify-center;
   }
 
   &::after {

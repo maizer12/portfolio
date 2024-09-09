@@ -1,6 +1,6 @@
 'use client';
-import React, { useEffect } from 'react';
-import { HTag, PTag } from '@/shared/common';
+import React from 'react';
+import { Container, HTag } from '@/shared/common';
 import MainButton from '@/shared/common/MainButton';
 import { Warning } from '@/shared/common/Warning';
 import { OctagonAlert } from 'lucide-react';
@@ -9,16 +9,10 @@ import ProjectDropdown from './ProjectDropdown';
 import AnimatedOnScroll from '../../common/AnimatedOnScroll';
 import { ProjectCategories } from './project-categories';
 import { getProjects } from '@/shared/services/projects';
-import { ProjectCard } from './project-card';
 import { ProjectWithRelations } from '@/@types/prisma';
 import { ProjectList } from './project-list';
 
-interface IProps {
-  filter?: string;
-  type?: string;
-}
-
-const Projects = ({ filter, type }: IProps) => {
+const Projects = () => {
   const [activeCategory, setActiveCategory] = React.useState(0);
   const [activeTechnologies, setActiveTechnologies] = React.useState(0);
 
@@ -50,9 +44,9 @@ const Projects = ({ filter, type }: IProps) => {
 
   return (
     <section className="py-32 bg-main" id="projects">
-      <div className="container relative z-2">
+      <Container className="relative z-2">
         <div className="mb-16 max-w-[1324px] mx-auto">
-          <div className="flex justify-between  mx-auto mb-12">
+          <div className="flex flex-col md:flex-row gap-8 justify-between  mx-auto mb-12">
             <HTag tag="h2" className="text-center">
               {t('title')}
             </HTag>
@@ -72,7 +66,7 @@ const Projects = ({ filter, type }: IProps) => {
             <MainButton onClick={loadMoreProjects}>More Projects</MainButton>
           </div>
         )}
-      </div>
+      </Container>
     </section>
   );
 };

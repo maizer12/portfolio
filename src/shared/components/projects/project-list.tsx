@@ -23,7 +23,7 @@ export const ProjectList: React.FC<Props> = ({ className, isLoading, projects })
   return (
     <ul
       className={cn(
-        'flex-wrap gap-6 max-w-[1224px] mx-auto grid md:grid-cols-2 lg:grid-cols-3 w-fit justify-center',
+        'flex-wrap gap-6 max-w-[1224px] mx-auto grid md:grid-cols-2 lg:grid-cols-3 w-fit justify-center grid-cols-1 min-w-full justify-items-center',
         className,
       )}
     >
@@ -31,8 +31,15 @@ export const ProjectList: React.FC<Props> = ({ className, isLoading, projects })
         {isLoading && (
           <>
             {[...new Array(6)].map((e, i) => (
-              <motion.li key={i} initial="visible" animate="visible" exit="hidden" variants={skeletonVariants}>
-                <Skeleton className="w-[395px] h-[263px] !bg-slate-100 animate-pulse rounded-lg border border-slate-200" />
+              <motion.li
+                key={i}
+                initial="visible"
+                animate="visible"
+                exit="hidden"
+                variants={skeletonVariants}
+                className="max-w-[375px] flex-1 w-full"
+              >
+                <Skeleton className="w-full h-[263px] !bg-slate-100 animate-pulse rounded-lg border border-slate-200" />
               </motion.li>
             ))}
           </>

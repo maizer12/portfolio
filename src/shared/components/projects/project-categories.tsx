@@ -33,7 +33,7 @@ export const ProjectCategories: FC<IProps> = ({ activeId, setActiveId }) => {
 
   if (loading)
     return (
-      <div className="max-w-[1324px] mx-auto flex gap-3">
+      <div className="max-w-[1324px] mx-auto flex gap-3 scroll-auto">
         {loaders.map((e, i) => (
           <Skeleton className="w-[100px] h-[34px] !bg-slate-100 " key={i} />
         ))}
@@ -41,7 +41,7 @@ export const ProjectCategories: FC<IProps> = ({ activeId, setActiveId }) => {
     );
 
   return (
-    <div className="max-w-[1324px] mx-auto flex gap-3">
+    <div className="max-w-[1324px] mx-auto flex gap-3 scroll-auto overflow-auto pb-3">
       <Badge isActive={activeId === 0} key={0} onClick={() => setActiveId(0)}>
         All
       </Badge>

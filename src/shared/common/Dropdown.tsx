@@ -31,7 +31,7 @@ function Dropdown({ children, label, text, icon, isOpen, setIsOpen }: IProps) {
   return (
     <div ref={dropdownRef} className="relative">
       <button
-        className="text-light-900 p-2.5 text-[16px] bg-dark-700 min-w-[144px] border-primary-200 border flex items-center gap-3 justify-center"
+        className="text-light-900 p-2.5 text-[16px] bg-dark-700 min-w-[144px] border-primary-200 border flex items-center gap-3 justify-center w-full"
         onClick={() => setIsOpen(!isOpen)}
       >
         {icon && <Icon icon={icon} className="w-6 fill-primary-200" />}

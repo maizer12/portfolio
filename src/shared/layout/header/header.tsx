@@ -6,6 +6,7 @@ import Image from 'next/image';
 import BurgerButton from './burger-button';
 import { Menu } from './menu';
 import { Language } from './language';
+import { Container } from '@/shared/common';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,14 +17,13 @@ export const Header = () => {
 
   return (
     <header className="py-2 bg-dark-900 fixed top-0 w-full z-40">
-      <div className="flex items-center justify-between container">
+      <Container className="flex items-center justify-between">
         <h2 className={style.logo}>
           <Link href="/">
             <Image src="/logo.png" width={60} height={60} alt="logo" />
           </Link>
         </h2>
         <BurgerButton onClick={toggleMenu} isOpen={isMenuOpen} />
-
         <nav
           className={`fixed inset-0 bg-black/60 w-screen h-screen md:h-auto transform ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -37,7 +37,7 @@ export const Header = () => {
             </div>
           </div>
         </nav>
-      </div>
+      </Container>
     </header>
   );
 };
