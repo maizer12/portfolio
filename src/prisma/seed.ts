@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-import { projectCategories, projectDetails, projectsArr, technologiesConstants } from './constants';
+import { projectCategories, projectDetails, technologiesConstants } from './constants';
+import { projectsData } from './seeders/projects-seed';
 
 const prisma = new PrismaClient();
 
@@ -7,6 +8,7 @@ async function cleanTables() {
   await prisma.$executeRaw`TRUNCATE TABLE "projects" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "ProjectCategory" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Technology" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "ProjectMoreDetails" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {
@@ -27,7 +29,7 @@ async function main() {
   }
 
   await Promise.all(
-    projectsArr.map(async ({ title, desc, type, categories, technologyIds }) => {
+    projectsData.map(async ({ title, desc, type, categories, technologyIds }) => {
       await prisma.project.create({
         data: {
           title,

@@ -39,7 +39,7 @@ export const ProjectList: React.FC<Props> = ({ className, isLoading, projects })
                 variants={skeletonVariants}
                 className="max-w-[375px] flex-1 w-full"
               >
-                <Skeleton className="w-full h-[263px] !bg-slate-100 animate-pulse rounded-lg border border-slate-200" />
+                <Skeleton className="w-full h-[263px]  animate-pulse rounded-lg border border-slate-200" />
               </motion.li>
             ))}
           </>

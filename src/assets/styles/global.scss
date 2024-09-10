@@ -3,7 +3,6 @@
 @tailwind utilities;
 @import './common.scss';
 @import './vars.scss';
-@import './style.scss';
 @import './animations.scss';
 
 * {
@@ -42,4 +41,7 @@ main {
 }
 html {
   scroll-behavior: smooth;
+}
+section {
+  overflow-x: hidden;
 }

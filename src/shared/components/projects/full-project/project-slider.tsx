@@ -36,9 +36,9 @@ export const ProjectSlider: React.FC<Props> = ({ className, items }) => {
   };
 
   return (
-    <div className={`h-full flex mb-16 gap-12 ${className}`}>
+    <div className={`h-full md:flex mb-16 gap-12 ${className}`}>
       <Carousel setApi={setApi} className="w-[80%]">
-        <CarouselContent className="w-full">
+        <CarouselContent>
           {items.map((slide, index) => (
             <CarouselItem key={slide.src}>
               <Image
@@ -57,7 +57,7 @@ export const ProjectSlider: React.FC<Props> = ({ className, items }) => {
         <CarouselNext className="!border-white bg-transparent text-white rounded-none" />
       </Carousel>
 
-      <div className="flex flex-col mt-4 gap-4">
+      <div className="flex md:flex-col mt-4 gap-4">
         {items.map((slide, index) => (
           <div
             key={slide.src}

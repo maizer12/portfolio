@@ -40,7 +40,7 @@ export default async function Project({ params: { id } }: { params: { id: string
   const icons = data.technologies.map(({ technology }) => technology);
 
   return (
-    <section className="py-24 bg-main flex justify-center items-center min-h-screen">
+    <section className="py-6 bg-main flex justify-center items-center min-h-screen px-2">
       <Container className="px-8 banner">
         <div className="flex justify-between items-center mb-12">
           <div>

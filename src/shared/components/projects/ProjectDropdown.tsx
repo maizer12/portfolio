@@ -4,6 +4,7 @@ import { Technology } from '@prisma/client';
 import { FC, useEffect, useMemo, useState } from 'react';
 import { getTechnologies } from '@/shared/services/technologies';
 import { Icon } from '@/shared/common/Icon';
+import { Skeleton } from '@/shared/common';
 
 interface Props {
   className?: string;
@@ -13,12 +14,20 @@ interface Props {
 
 const ProjectDropdown: FC<Props> = ({ className, activeTechnologies, setActiveTechnologies }) => {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const fetchTechnologies = async () => {
-      const res = await getTechnologies();
-      setTechnologies(res);
+      try {
+        setIsLoading(true);
+        const res = await getTechnologies();
+        setTechnologies(res);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     fetchTechnologies();
@@ -36,7 +45,7 @@ const ProjectDropdown: FC<Props> = ({ className, activeTechnologies, setActiveTe
     setOpen(false);
   };
 
-  if (technologies.length === 0) return null;
+  if (isLoading) return <Skeleton className="w-[220px] rounded-none" />;
 
   return (
     <DropdownMenu

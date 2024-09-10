@@ -12,7 +12,7 @@ interface IProps {
   searchParams: { filter: string; type: string };
 }
 
-export default function Home({ searchParams }: IProps) {
+export default function Home() {
   return (
     <>
       <Banner />
