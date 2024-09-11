@@ -18,24 +18,17 @@ export async function GET(req: NextRequest) {
 
     console.log('Данные из Supabase:', data);
 
-    // Генерация публичных ссылок
     const fileUrls = data.map((file) => {
-      const { data: publicData, error: publicError } = supabase.storage
+      const { data: publicData } = supabase.storage
         .from('projects')
         .getPublicUrl(`${folder || 'DevFlow'}/${file.name}`);
 
-      if (publicError) {
-        console.error('Ошибка генерации публичной ссылки:', publicError);
-        return null;
-      }
-
-      console.log('Публичная ссылка для файла:', file.name, publicData.publicUrl); // Отладочный вывод
-      return publicData.publicUrl; // Правильное извлечение ссылки
+      return publicData.publicUrl;
     });
 
     return NextResponse.json({ fileUrls: fileUrls.filter(Boolean) }, { status: 200 });
   } catch (error) {
     console.error('Catch ошибка:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Unknown error' }, { status: 500 });
   }
 }

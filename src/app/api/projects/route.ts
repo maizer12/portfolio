@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
   const res = projects.map((project) => {
     return {
       ...project,
-      technologies: project.technologies.map((tech) => tech.technology),
+      technologies: project.technologies.map((tech) => tech.technology).sort((a, b) => a.id - b.id),
     };
   });
 

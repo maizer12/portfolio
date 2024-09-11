@@ -12,7 +12,6 @@ model Project {
   id    Int    @id @default(autoincrement())
   title String
   desc  String
-  type  String
 
   detailsId Int?                @unique
   details   ProjectMoreDetails? @relation(fields: [detailsId], references: [id])

@@ -37,18 +37,18 @@ export default async function Project({ params: { id } }: { params: { id: string
     return { src: img, alt: `data.title ${ind}` };
   });
 
-  const icons = data.technologies.map(({ technology }) => technology);
+  const icons = data.technologies.map(({ technology }) => technology).sort((a, b) => a.id - b.id);
 
   return (
-    <section className="py-6 bg-main flex justify-center items-center min-h-screen px-2">
+    <section className="py-6 bg-main flex  justify-center items-center min-h-screen px-2">
       <Container className="px-8 banner">
-        <div className="flex justify-between items-center mb-12">
+        <div className="flex justify-between flex-col gap-5 md:flex-row md:items-center mb-12">
           <div>
             <p className="text-primary-200 font-inter font-bold">Full Stack Project:</p>
             <HTag tag="h1">{data.title}</HTag>
           </div>
           <div className="flex flex-col items-end">
-            <BackButton />
+            <BackButton className="mb-6 md:mb-4" />
             <div className="flex gap-4">
               {icons.map(({ icon, color }, index) => (
                 <Icon key={index} icon={icon} className={`w-8 ${color}`} />
@@ -58,10 +58,16 @@ export default async function Project({ params: { id } }: { params: { id: string
         </div>
         {images && <ProjectSlider items={images} />}
         <div className="flex gap-4 mb-12">
-          <MainButton className="min-w-[114px]">
-            <ExternalLink /> Visit
-          </MainButton>
-          <a className="border w-11 h-11 flex justify-center items-center border-primary-700 bg-dark-900 hover:border-light-400 fill-primary-200 hover:fill-light-400 duration-300 cursor-pointer">
+          <a href={data.details?.link} target="_blank">
+            <MainButton className="min-w-[114px]">
+              <ExternalLink /> Visit
+            </MainButton>
+          </a>
+          <a
+            className="border w-11 h-11 flex justify-center items-center border-primary-700 bg-dark-900 hover:border-light-400 fill-primary-200 hover:fill-light-400 duration-300 cursor-pointer"
+            href={data.details?.gitLink}
+            target="_blank"
+          >
             <Icon icon={'cibGit'} />
           </a>
         </div>

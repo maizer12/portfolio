@@ -36,7 +36,7 @@ export const ProjectSlider: React.FC<Props> = ({ className, items }) => {
   };
 
   return (
-    <div className={`h-full md:flex mb-16 gap-12 ${className}`}>
+    <div className={`h-full lg:flex mb-16 gap-12 md:max-h-[480px] ${className}`}>
       <Carousel setApi={setApi} className="w-[80%]">
         <CarouselContent>
           {items.map((slide, index) => (
@@ -57,11 +57,11 @@ export const ProjectSlider: React.FC<Props> = ({ className, items }) => {
         <CarouselNext className="!border-white bg-transparent text-white rounded-none" />
       </Carousel>
 
-      <div className="flex md:flex-col mt-4 gap-4">
+      <div className="flex lg:flex-col mt-4 gap-4 overflow-auto">
         {items.map((slide, index) => (
           <div
             key={slide.src}
-            className={`cursor-pointer p-1 border ${
+            className={`cursor-pointer p-1 border min-w-[100px] ${
               index === activeSlide ? 'border-primary-200' : 'border-transparent'
             }`}
             onClick={() => handleThumbnailClick(index)}

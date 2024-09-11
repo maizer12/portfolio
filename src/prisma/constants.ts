@@ -10,6 +10,8 @@ export const technologiesConstants = [
   { value: 'electron', label: 'Electron', icon: 'cibElectron', fill: 'fill-blue-700' },
   { value: 'jquery', label: 'Jquery', icon: 'cibJquery', fill: 'fill-blue-500' },
   { label: 'Mongodb', icon: 'cibMongodb', fill: 'fill-lime-600' },
+  { label: 'Postgresql', icon: 'cibPostgresql', fill: 'fill-blue-600' },
+  { label: 'Docker', icon: 'cibDocker', fill: 'fill-blue-600' },
 ];
 
 export const projectDetails = [

@@ -1,104 +1,160 @@
-export const projectsData = [
-  {
-    title: 'DevFlow',
-    desc: 'A forum for programmers where you can ask questions on a wide range of topics, engage in discussions, and share your knowledge and expertise.',
-    type: 'web-application',
-    categories: [1],
-    icons: [
-      { icon: 'cibNextJs', fill: 'fill-slate-200' },
-      { icon: 'cibTypescript', fill: 'fill-blue-400' },
-    ],
-    technologyIds: [2, 4, 5],
+const dewFlow = {
+  title: 'DevFlow',
+  desc: 'A forum for programmers where you can ask questions on a wide range of topics, engage in discussions, and share your knowledge and expertise.',
+  categories: [1, 2],
+  technologyIds: [2, 4, 9],
+  details: {
+    gitLink: 'https://github.com/maizer12/dev-flow',
+    link: 'https://dev-flow-app.vercel.app/',
     imageUrl: [
-      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/sign/projects/DevFlow/1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0cy9EZXZGbG93LzEucG5nIiwiaWF0IjoxNzI1OTc1NTk5LCJleHAiOjE3NTc1MTE1OTl9.W9Weji1BVJkvyzGlvhArAunlIsWxN3ao3fJd77S7kR8&t=2024-09-10T13%3A39%3A58.623Z',
-      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/sign/projects/DevFlow/2.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0cy9EZXZGbG93LzIucG5nIiwiaWF0IjoxNzI1OTc1NjA3LCJleHAiOjE3NTc1MTE2MDd9.KI8SW_AGP3WeajRUEzNUUJORlspIetU0Be3AMhJ9oqU&t=2024-09-10T13%3A40%3A07.061Z',
-      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/sign/projects/DevFlow/Screenshot_1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0cy9EZXZGbG93L1NjcmVlbnNob3RfMS5wbmciLCJpYXQiOjE3MjU5NzU2MTksImV4cCI6MTc1NzUxMTYxOX0.C4gS79z3v4sqKICXXR5q8rvR0YNF1u65qHjKCT11_NQ&t=2024-09-10T13%3A40%3A19.100Z',
-      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/sign/projects/DevFlow/Screenshot_2.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0cy9EZXZGbG93L1NjcmVlbnNob3RfMi5wbmciLCJpYXQiOjE3MjU5NzU2MjksImV4cCI6MTc1NzUxMTYyOX0.BgAk_VcYPJ7WSPBjl2A_Q071egjDZIwcHQOjpBZkhIk&t=2024-09-10T13%3A40%3A29.170Z',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/DevFlow/1.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/DevFlow/2.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/DevFlow/Screenshot_1.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/DevFlow/Screenshot_2.png',
     ],
+    desc: JSON.stringify([]),
   },
-  {
-    title: 'Inventory',
-    desc: 'A comprehensive CRM system for an electronics store, designed to efficiently manage orders, products, and customer interactions.',
-    type: 'web-application',
-    categories: [1, 2],
-    icons: [
-      { icon: 'cibReact', fill: 'fill-blue-500' },
-      { icon: 'cibNodeJs', fill: 'fill-green-500' },
-      { icon: 'cibMongodb', fill: 'fill-lime-600' },
+};
+
+const inventory = {
+  title: 'Inventory',
+  desc: 'A small system for internal order management, allowing the creation and editing of current orders with file upload capability and support for multiple languages.',
+  categories: [1, 2],
+  technologyIds: [1, 4, 5, 9, 11],
+  details: {
+    gitLink: 'https://github.com/maizer12/inventory',
+    link: 'https://js-task-tau.vercel.app',
+    imageUrl: [
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/1.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_2.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_3.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_4.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_5.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_6.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_7.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_8.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_9.png',
     ],
-    technologyIds: [1, 5, 9],
+    desc: JSON.stringify([
+      {
+        title: 'Order Management',
+        description: 'Users can retrieve, create, and delete orders, providing a seamless workflow for order handling.',
+      },
+      {
+        title: 'Product Management',
+        description:
+          'Users can retrieve, create, and delete products. Each product created is linked to a specific order, ensuring a clear connection between products and their respective orders.',
+      },
+      {
+        title: 'Search Optimization',
+        description:
+          'A debounce mechanism is implemented on the search function to reduce server load by limiting the number of queries sent.',
+      },
+      {
+        title: 'React Lazy Loading',
+        description:
+          'All pages are wrapped with React Lazy for additional optimization, enabling faster application load times by loading components as they are needed.',
+      },
+      {
+        title: 'Lazy Loading of Orders Table',
+        description: 'The orders table is lazily loaded to improve performance and speed up the user interface.',
+      },
+      {
+        title: 'Form Validation',
+        description: 'All forms are validated to ensure the integrity of the data entered.',
+      },
+      {
+        title: 'Product Page Filtering',
+        description: 'Filtering options are available on the products page, simplifying the search for specific items.',
+      },
+      {
+        title: 'Current Date Display',
+        description: 'The interface includes the display of the current date.',
+      },
+      {
+        title: 'Real-Time Active User Count',
+        description:
+          'The number of active users is displayed in real-time, fostering an interactive and dynamic user experience.',
+      },
+      {
+        title: 'Multi-Language Support',
+        description: 'The application supports two languages, Ukrainian and English, to cater to a diverse user base.',
+      },
+      {
+        title: 'Loaders for Each Loading Process',
+        description:
+          'Loaders are implemented for every loading operation to enhance the user experience by providing visual feedback.',
+      },
+      {
+        title: 'File Upload Capability',
+        description:
+          'Users have the ability to upload files, adding to the functionality and flexibility of the application.',
+      },
+    ]),
   },
-  {
-    title: 'Weather Wise',
-    desc: 'A weather forecast app with automatic location detection, charts, autocomplete features, and various additional functionalities.',
-    type: 'web-application',
-    categories: [1],
-    icons: [{ icon: 'cibVueJs', fill: 'fill-green-500' }],
-    technologyIds: [4],
-  },
-  {
-    title: 'Next Pizza',
-    desc: 'An online platform for ordering pizzas with a customizable menu, fast delivery, and various payment options.',
-    type: 'web-application',
-    categories: [1, 2],
-    icons: [{ icon: 'cibVueJs', fill: 'fill-green-500' }],
-    technologyIds: [4],
-  },
-  {
-    title: 'Game Arcade',
-    desc: 'A web-based arcade gaming platform offering a wide range of games and leaderboards to compete with friends.',
-    type: 'web-application',
-    categories: [4],
-    icons: [{ icon: 'cibVueJs', fill: 'fill-green-500' }],
-    technologyIds: [4],
-  },
-  {
-    title: 'Simple Portfolio',
-    desc: 'A personal portfolio website to showcase projects, skills, and contact information.',
-    type: 'web-application',
-    categories: [1],
-    icons: [{ icon: 'cibReact', fill: 'fill-blue-500' }],
-    technologyIds: [2],
-  },
-  {
-    title: 'Social Network',
-    desc: 'A social networking platform for connecting with friends, sharing updates, and joining communities.',
-    type: 'web-application',
-    categories: [4],
-    icons: [{ icon: 'cibVueJs', fill: 'fill-green-500' }],
-    technologyIds: [4],
-  },
-  {
-    title: 'E-commerce Platform',
-    desc: 'An advanced e-commerce platform with features such as product listings, shopping cart, checkout, and user reviews.',
-    type: 'web-application',
-    categories: [1, 3],
-    icons: [
-      { icon: 'cibNextJs', fill: 'fill-black' },
-      { icon: 'cibStripe', fill: 'fill-blue-500' },
+};
+
+const portfolio = {
+  title: 'My Portfolio',
+  desc: 'A small project designed to showcase my experience, skills, and to share more about myself',
+  categories: [1, 2],
+  technologyIds: [2, 4, 10],
+  details: {
+    gitLink: 'https://github.com/maizer12/inventory',
+    link: 'https://js-task-tau.vercel.app',
+    imageUrl: [
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_1.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_3.png',
     ],
-    technologyIds: [3],
+    desc: JSON.stringify([]),
   },
-  {
-    title: 'Fitness Tracker',
-    desc: 'A mobile-friendly web app to track workouts, monitor progress, and set fitness goals.',
-    type: 'web-application',
-    categories: [2],
-    icons: [
-      { icon: 'cibReact', fill: 'fill-blue-500' },
-      { icon: 'cibNodeJs', fill: 'fill-green-500' },
+};
+const nextPizza = {
+  title: 'Pizza Shop',
+  desc: 'A simple pizza ordering app that allows users to browse and order their favorite pizzas.',
+  categories: [1, 2],
+  technologyIds: [2, 4, 10],
+  details: {
+    gitLink: 'https://github.com/maizer12/dev-flow',
+    link: 'https://dev-flow-app.vercel.app/',
+    imageUrl: [
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_1.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_3.png',
     ],
-    technologyIds: [2, 6],
+    desc: JSON.stringify([]),
   },
-  {
-    title: 'Blog Platform',
-    desc: 'A blogging platform where users can create, edit, and share posts, with features for comments and social sharing.',
-    type: 'web-application',
-    categories: [1],
-    icons: [
-      { icon: 'cibReact', fill: 'fill-blue-500' },
-      { icon: 'cibTailwindCss', fill: 'fill-blue-500' },
+};
+
+const vibeNet = {
+  title: 'VibeNet',
+  desc: 'A blog platform where users can create accounts, customize their profiles, publish and edit articles, upload files, and manage their content easily.',
+  categories: [1],
+  technologyIds: [1, 4, 5, 9],
+  details: {
+    gitLink: 'https://github.com/maizer12/dev-flow',
+    link: 'https://dev-flow-app.vercel.app/',
+    imageUrl: [
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_1.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_3.png',
     ],
-    technologyIds: [2],
+    desc: JSON.stringify([]),
   },
-];
+};
+
+const weatherWise = {
+  title: 'Weather Wise',
+  desc: 'An application for viewing weather in various regions, featuring automatic location detection via IP and the ability to save favorite locations locally.',
+  categories: [1],
+  technologyIds: [3],
+  details: {
+    gitLink: 'https://github.com/maizer12/dev-flow',
+    link: 'https://dev-flow-app.vercel.app/',
+    imageUrl: [
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_1.png',
+      'https://onzxuggvoclteqxynecc.supabase.co/storage/v1/object/public/projects/Inventory/Screenshot_3.png',
+    ],
+    desc: JSON.stringify([]),
+  },
+};
+
+export const projectsData = [dewFlow, inventory, portfolio, nextPizza, vibeNet, weatherWise];
