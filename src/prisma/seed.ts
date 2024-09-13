@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { projectCategories, projectDetails, technologiesConstants } from './constants';
-import { projectsData } from './seeders/projects-seed';
+import { projectsData } from './data/projects-data';
 
 const prisma = new PrismaClient();
 

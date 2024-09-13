@@ -40,7 +40,7 @@ export const ProjectSlider: React.FC<Props> = ({ className, items }) => {
       <Carousel setApi={setApi} className="w-[80%]">
         <CarouselContent>
           {items.map((slide, index) => (
-            <CarouselItem key={slide.src}>
+            <CarouselItem key={slide.src} className="w-full overflow-hidden md:max-h-[480px] ">
               <Image
                 src={slide.src}
                 alt={slide.alt}
@@ -48,7 +48,7 @@ export const ProjectSlider: React.FC<Props> = ({ className, items }) => {
                 height="0"
                 sizes="100vw"
                 priority={index === activeSlide}
-                className="object-contain w-full h-full"
+                className="object-cover w-full h-full"
               />
             </CarouselItem>
           ))}

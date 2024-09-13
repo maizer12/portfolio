@@ -1,5 +1,5 @@
 import { Inika } from 'next/font/google';
-import { Header, Footer } from '../../shared/layout';
+import { Header, Footer, Views } from '../../shared/layout';
 import '../../assets/styles/global.scss';
 import './global.css';
 import { Metadata } from 'next';
@@ -33,6 +33,7 @@ export default async function RootLayout({ children, params: { locale } }: IProp
           <Header />
           <main className="main">{children}</main>
           <Footer />
+          <Views />
         </NextIntlClientProvider>
       </body>
     </html>

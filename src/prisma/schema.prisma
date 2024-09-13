@@ -36,7 +36,7 @@ model ProjectCategory {
   id   Int    @id @default(autoincrement())
   name String
 
-  projects Project[] @relation("ProjectCategories") 
+  projects Project[] @relation("ProjectCategories")
 }
 
 model Technology {
@@ -56,4 +56,12 @@ model ProjectTechnology {
 
   @@id([projectId, technologyId])
   @@map("_ProjectTechnology")
+}
+
+model Views {
+  id        Int      @id @default(autoincrement())
+  
+  viewCount Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
