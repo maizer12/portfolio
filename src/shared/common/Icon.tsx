@@ -1,17 +1,17 @@
 'use client';
 import React from 'react';
-import CIcon from '@coreui/icons-react';
-import * as icons from '@coreui/icons';
-import { cilWarning } from '@coreui/icons';
+import * as FaIcons from 'react-icons/fa';
+import * as SiIcons from 'react-icons/si';
+import { FaExclamationTriangle } from 'react-icons/fa'; // Иконка по умолчанию
 
 interface IProps {
   icon: string;
   className?: string;
-  style?: any;
+  style?: React.CSSProperties;
 }
 
 export const Icon = ({ icon, className = '', style = {} }: IProps) => {
-  const IconComponent = (icons as any)[icon] || cilWarning;
+  const IconComponent = (FaIcons as any)[icon] || (SiIcons as any)[icon] || FaExclamationTriangle;
 
-  return <CIcon icon={IconComponent} size="xxl" className={className} style={style} />;
+  return <IconComponent className={className} style={style} />;
 };

@@ -2,7 +2,7 @@ const dewFlow = {
   title: 'DevFlow',
   desc: 'A forum for programmers where you can ask questions on a wide range of topics, engage in discussions, and share your knowledge and expertise.',
   categories: [1, 2],
-  technologyIds: [2, 4, 9],
+  technologyIds: [2, 4, 9, 12],
   details: {
     gitLink: 'https://github.com/maizer12/dev-flow',
     link: 'https://dev-flow-app.vercel.app/',
@@ -144,7 +144,7 @@ const portfolio = {
   title: 'My Portfolio',
   desc: 'A small project designed to showcase my experience, skills, and to share more about myself',
   categories: [1, 2],
-  technologyIds: [2, 4, 10],
+  technologyIds: [2, 4, 10, 12],
   details: {
     gitLink: '',
     link: 'https://vasilbazhiv.vercel.app/en',
@@ -207,7 +207,7 @@ const nextPizza = {
   title: 'Pizza Shop',
   desc: 'A simple pizza ordering app that allows users to browse and order their favorite pizzas.',
   categories: [1, 2],
-  technologyIds: [2, 4, 10],
+  technologyIds: [2, 4, 10, 12],
   details: {
     gitLink: 'https://github.com/maizer12/full-stack-shop',
     link: '',

@@ -1,19 +1,5 @@
 export const projectCategories = ['Web Application', 'Fullstack', 'Landing Page', 'Desktop Application', 'Games'];
 
-export const technologiesConstants = [
-  { value: 'react', label: 'React', icon: 'cibReact', fill: 'fill-blue-600' },
-  { value: 'next', label: 'Next', icon: 'cibNextJs', fill: 'fill-white' },
-  { value: 'vue', label: 'Vue', icon: 'cibVueJs', fill: 'fill-green-500' },
-  { value: 'ts', label: 'TS', icon: 'cibTypescript', fill: 'fill-blue-400' },
-  { value: 'node', label: 'Node', icon: 'cibNodeJs', fill: 'fill-green-600' },
-  { value: 'websocket', label: 'Websocket', icon: 'cibSocketIo', fill: 'fill-gray-400' },
-  { value: 'electron', label: 'Electron', icon: 'cibElectron', fill: 'fill-blue-700' },
-  { value: 'jquery', label: 'Jquery', icon: 'cibJquery', fill: 'fill-blue-500' },
-  { label: 'Mongodb', icon: 'cibMongodb', fill: 'fill-lime-600' },
-  { label: 'Postgresql', icon: 'cibPostgresql', fill: 'fill-blue-600' },
-  { label: 'Docker', icon: 'cibDocker', fill: 'fill-blue-600' },
-];
-
 export const projectDetails = [
   {
     project: {

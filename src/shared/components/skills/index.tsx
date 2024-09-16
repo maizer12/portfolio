@@ -45,7 +45,7 @@ const Skills = () => {
               >
                 <Icon
                   icon={e.icon}
-                  className="w-14 fill-primary-200 transform transition-transform duration-500 hover:fill-white hover:scale-110"
+                  className="w-12 h-12 fill-primary-200 transform transition-transform duration-500 hover:fill-white hover:scale-110"
                 />
               </div>
             </AnimatedOnScroll>

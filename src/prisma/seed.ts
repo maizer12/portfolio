@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
-import { projectCategories, projectDetails, technologiesConstants } from './constants';
+import { projectCategories } from './constants';
 import { projectsData } from './data/projects-data';
+import { technologiesData } from './data/technologies-data';
 
 const prisma = new PrismaClient();
 
@@ -18,7 +19,7 @@ async function main() {
     data: projectCategories.map((category) => ({ name: category })),
   });
 
-  for (const tech of technologiesConstants) {
+  for (const tech of technologiesData) {
     await prisma.technology.create({
       data: {
         name: tech.label,

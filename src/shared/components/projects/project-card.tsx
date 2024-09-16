@@ -34,7 +34,7 @@ export const ProjectCard: React.FC<Props> = ({ item, className }) => {
           </Link>
           <div className="flex w-fit gap-3">
             {item.technologies.map((item, index) => (
-              <Icon icon={item.icon} key={item.id} className={cn('w-7', item.color)} />
+              <Icon icon={item.icon} key={item.id} className={cn('w-7 h-7', item.color)} />
             ))}
           </div>
         </div>

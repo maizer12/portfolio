@@ -5,7 +5,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/common/Tabs';
 import { Block } from './Block';
 import { getExperienceTabs } from '@/shared/constants/experience.constants';
 import { Icon } from '@/shared/common/Icon';
-import { cilCalendar } from '@coreui/icons';
 import AnimatedOnScroll from '../common/AnimatedOnScroll';
 
 const Experience = () => {
@@ -49,7 +48,7 @@ const Experience = () => {
                     </h4>
                     <h5 className="text-light-400 text-start font-bold font-inter text-1xl flex items-center gap-2">
                       {content.date}
-                      {/* <Icon icon={cilCalendar} className="w-6" /> */}
+                      <Icon icon="FaCalendarAlt" className="w-6" />
                     </h5>
                   </div>
                   <h5 className="block mb-6 text-primary-200 min-w-[240px] text-start font-bold font-inter text-1xl">
@@ -60,7 +59,7 @@ const Experience = () => {
                   </h5>
                   <div className="flex w-fit mt-4 ml-auto gap-2">
                     {content.icons?.map((icon, index) => (
-                      <Icon icon={icon} className={`iconBounce w-7 fill-light-400`} key={index} />
+                      <Icon icon={icon} className={`iconBounce w-6 h-6 fill-light-400`} key={index} />
                     ))}
                   </div>
                 </AnimatedOnScroll>

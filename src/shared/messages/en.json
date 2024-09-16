@@ -44,20 +44,20 @@
   "skills": {
     "title": "My Skills:",
     "subtitle": "Description:",
-    "desc": "*passe o cursor do mouse no card para ler",
+    "desc": "*hover over the card to read",
     "items": {
-      "html": "I can create semantic and beautiful markup, familiar with HTML for more than 3 years",
-      "css": "Well acquainted with CSS3, able to create adaptive and cross-browser styles",
-      "sass": "I use the Sass preprocessor for convenient CSS writing",
-      "js": "I know JavaScript, I can write complex logic and interact with the DOM",
-      "react": "I use React to create SPA applications",
-      "vue": "Familiar with Vue.js, used for creating interfaces",
-      "next": "Working with Next.js for server-side rendering and static site generation",
-      "typescript": "I use TypeScript for typing and improving code stability",
-      "node": "I use Node.js to create server-side applications",
-      "socketio": "I work with Socket.io to implement real-time applications",
-      "wordpress": "I create websites on WordPress, familiar with its internal structure",
-      "bootstrap": "I use Bootstrap for quick layout and creating adaptive interfaces"
+      "tailwind": "I use Tailwind CSS to quickly style components and create adaptive layouts.",
+      "express": "Experienced in using Express.js to build server-side applications.",
+      "sass": "I use the Sass preprocessor for convenient CSS writing.",
+      "js": "I know JavaScript, I can write complex logic and interact with the DOM.",
+      "react": "I use React to create SPA applications.",
+      "vue": "Familiar with Vue.js, used for creating interfaces.",
+      "next": "Working with Next.js for server-side rendering and static site generation.",
+      "typescript": "I use TypeScript for typing and improving code stability.",
+      "node": "I use Node.js to create server-side applications.",
+      "socketio": "I work with Socket.io to implement real-time applications.",
+      "wordpress": "I create websites on WordPress, familiar with its internal structure.",
+      "bootstrap": "I use Bootstrap for quick layout and creating adaptive interfaces."
     }
   }
 }

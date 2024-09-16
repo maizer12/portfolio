@@ -4,7 +4,7 @@ import { Icon } from '@/shared/common/Icon';
 import MainButton from '@/shared/common/MainButton';
 import { ProjectDesc, ProjectSlider } from '@/shared/components';
 import { DescItem } from '@/shared/components/projects/full-project/project-desc';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 export default async function Project({ params: { id } }: { params: { id: string } }) {
   const data = await prisma.project.findUnique({
@@ -51,7 +51,7 @@ export default async function Project({ params: { id } }: { params: { id: string
             <BackButton className="mb-6 md:mb-4" />
             <div className="flex gap-4">
               {icons.map(({ icon, color }, index) => (
-                <Icon key={index} icon={icon} className={`w-8 ${color}`} />
+                <Icon key={index} icon={icon} className={`w-8 h-8 ${color}`} />
               ))}
             </div>
           </div>
@@ -64,11 +64,11 @@ export default async function Project({ params: { id } }: { params: { id: string
             </MainButton>
           </a>
           <a
-            className="border w-11 h-11 flex justify-center items-center border-primary-700 bg-dark-900 hover:border-light-400 fill-primary-200 hover:fill-light-400 duration-300 cursor-pointer"
+            className="border w-11 h-11 flex justify-center items-center border-primary-700 bg-dark-900 hover:border-light-400 text-primary-200 hover:text-light-400 duration-300 cursor-pointer"
             href={data.details?.gitLink}
             target="_blank"
           >
-            <Icon icon={'cibGit'} />
+            <Github />
           </a>
         </div>
         <HTag tag="h5" className="mb-4">

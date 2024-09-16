@@ -6,9 +6,8 @@ import { PTag } from '../../common/PTag';
 import MainButton from '../../common/MainButton';
 import { useTranslations } from 'next-intl';
 import BannerLinks from './banner-links';
-import { Icon } from '@/shared/common/Icon';
-import { cilFile } from '@coreui/icons';
 import { cn } from '@/shared/lib/utils';
+import { FileSpreadsheetIcon } from 'lucide-react';
 
 export const Banner = () => {
   const t = useTranslations('banner');
@@ -22,7 +21,7 @@ export const Banner = () => {
             className="border p-2 px-3 w-fit border-primary-200 text-sm text-light-400 flex min-w-[134px] items-center gap-4 bg-dark-900 duration-500 rounded-sm ml-auto hover:border-light-400"
             target="_blank"
           >
-            <Icon icon="cilFile" className="w-6" />
+            <FileSpreadsheetIcon />
             {t('openCV')}
           </a>
           <div>

@@ -5,6 +5,8 @@ import { FC, useEffect, useMemo, useState } from 'react';
 import { getTechnologies } from '@/shared/services/technologies';
 import { Icon } from '@/shared/common/Icon';
 import { Skeleton } from '@/shared/common';
+import { LayoutGrid } from 'lucide-react';
+import React from 'react';
 
 interface Props {
   className?: string;
@@ -45,13 +47,19 @@ const ProjectDropdown: FC<Props> = ({ className, activeTechnologies, setActiveTe
     setOpen(false);
   };
 
+  const getIcon = getActiveTechnologies ? (
+    <Icon className="w-6 h-6" icon={getActiveTechnologies.icon} />
+  ) : (
+    <LayoutGrid />
+  );
+
   if (isLoading) return <Skeleton className="w-[220px] rounded-none" />;
 
   return (
     <DropdownMenu
       label={getActiveTechnologies?.name || 'All'}
       text="Filtered By:"
-      icon={getActiveTechnologies?.icon || 'cilGrid'}
+      Icon={getIcon}
       isOpen={open}
       setIsOpen={setOpen}
     >
@@ -62,7 +70,7 @@ const ProjectDropdown: FC<Props> = ({ className, activeTechnologies, setActiveTe
           onClick={() => setActive(0)}
         >
           All
-          <Icon icon="cilGrid" className="w-6 fill-light-900" />
+          <LayoutGrid />
         </li>
         {technologies.map((cat, index) => (
           <li
@@ -72,7 +80,7 @@ const ProjectDropdown: FC<Props> = ({ className, activeTechnologies, setActiveTe
             onClick={() => setActive(cat.id)}
           >
             {cat.name}
-            <Icon icon={cat.icon} className={`w-6 ${cat.color}`} />
+            <Icon icon={cat.icon} className={`w-6 h-6 ${cat.color}`} />
           </li>
         ))}
       </ul>

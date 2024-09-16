@@ -12,7 +12,7 @@ const BannerLinks = () => {
             href={e.link}
             title={e.name}
             className={
-              'border w-11 h-11 flex justify-center items-center border-primary-700 bg-dark-900 hover:border-light-400 fill-primary-200 hover:fill-light-400 duration-300 ' +
+              'border w-11 h-11 flex justify-center items-center border-primary-700 bg-dark-900 hover:border-light-400 text-primary-200 hover:text-light-400 duration-300 ' +
               style.linkHover
             }
           >
